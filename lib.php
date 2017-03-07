@@ -24,18 +24,17 @@ defined('MOODLE_INTERNAL') || die();
 function ffhs_supports($feature) {
     switch($feature) {
         case FEATURE_BACKUP_MOODLE2:          return true;
-		
+
         default: return false;
     }
 }
 
 function ffhs_add_instance($ffhs, $mform = null) {
     global $DB, $CFG;
-    
+
     $ffhs->timemodified = time();
-	$ffhs->testformat = $ffhs->test['format'];
-	$ffhs->test = $ffhs->test['text'];
-	var_dump($ffhs);
+	  $ffhs->testformat = $ffhs->test['format'];
+	  $ffhs->test = $ffhs->test['text'];
     $ffhs->id = $DB->insert_record('ffhs', $ffhs);
 
     return $ffhs->id;
@@ -45,7 +44,7 @@ function ffhs_delete_instance($id) {
     global $DB;
 
     if (! $ffhs = $DB->get_record("ffhs", array("id"=>$id))) {
-        return false;
+		return false;
     }
 
     $result = true;
@@ -60,8 +59,8 @@ function ffhs_delete_instance($id) {
 function ffhs_update_instance($ffhs) {
     global $DB;
 
-	$ffhs->testformat = $ffhs->test['format'];
-	$ffhs->test = $ffhs->test['text'];
+	  $ffhs->testformat = $ffhs->test['format'];
+	  $ffhs->test = $ffhs->test['text'];
     $ffhs->timemodified = time();
     $ffhs->id = $ffhs->instance;
 

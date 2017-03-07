@@ -37,4 +37,3 @@ echo $OUTPUT->header();
 $renderer = $PAGE->get_renderer('mod_ffhs');
 echo $renderer->display_ffhs($ffhs);
 echo $OUTPUT->footer();
-//redirect("$CFG->wwwroot/course/view.php?id=$course->id");

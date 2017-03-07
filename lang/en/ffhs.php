@@ -15,5 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 $string['pluginname'] = 'FFHS Activity';
-$string['modulename'] = 'FFHS activity module';
-$string['ffhstext'] = 'Enter your text here';
+$string['modulename'] = 'FFHS Activity module';
+$string['activityname'] = 'Enter your activity name here';
+$string['activitytext'] = 'Enter your text here';
+$string['modulenameplural'] = "FFHS Activities";
+$string['pluginadministration'] = "Edit your FFHS Activity";

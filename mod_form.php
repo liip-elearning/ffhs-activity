@@ -22,18 +22,21 @@ require_once ($CFG->dirroot.'/course/moodleform_mod.php');
 class mod_ffhs_mod_form extends moodleform_mod {
 
     function definition() {
-	
-        $mform = $this->_form;
+				global $DB;
+
+				$mform = $this->_form;
+				//$name = $this->name;
+				$name = "what";
+				$text = $DB->get_field('ffhs', 'test', array('name'=>$name), $strictness=IGNORE_MISSING);
 
         $mform->addElement('header', 'generalhdr', get_string('general'));
-        $mform->addElement('editor', 'test', get_string('ffhstext', 'ffhs'), array('enable_filemanagement' => false));
-		$mform->setType('test', PARAM_RAW);
+				$mform->addElement('text', 'name', get_string('activityname', 'ffhs'));
+				$mform->setType('name', PARAM_RAW);
+				$mform->addElement('editor', 'test', get_string('activitytext', 'ffhs'),
+						array('enable_filemanagement' => false))->setValue(array('text' => $text));
+				$mform->setType('test', PARAM_RAW);
 
         $this->standard_coursemodule_elements();
-
-		//-------------------------------------------------------------------------------
-		// buttons
         $this->add_action_buttons(true, false, null);
-
     }
 }
